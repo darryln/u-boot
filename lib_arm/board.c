@@ -92,24 +92,27 @@ extern void rtl8019_get_enetaddr (uchar * addr);
  ************************************************************************
  * May be supplied by boards if desired
  */
+// 2019-02-15 darryln - weak alias causes compiler error when building csb226
+//board.c:96:6: error: ‘coloured_LED_init’ aliased to external symbol ‘__coloured_LED_init’
+
 void inline __coloured_LED_init (void) {}
-void coloured_LED_init (void) __attribute__((weak, alias("__coloured_LED_init")));
+//void coloured_LED_init (void) __attribute__((weak, alias("__coloured_LED_init")));
 void inline __red_LED_on (void) {}
-void red_LED_on (void) __attribute__((weak, alias("__red_LED_on")));
+//void red_LED_on (void) __attribute__((weak, alias("__red_LED_on")));
 void inline __red_LED_off(void) {}
-void red_LED_off(void) __attribute__((weak, alias("__red_LED_off")));
+//void red_LED_off(void) __attribute__((weak, alias("__red_LED_off")));
 void inline __green_LED_on(void) {}
-void green_LED_on(void) __attribute__((weak, alias("__green_LED_on")));
+//void green_LED_on(void) __attribute__((weak, alias("__green_LED_on")));
 void inline __green_LED_off(void) {}
-void green_LED_off(void) __attribute__((weak, alias("__green_LED_off")));
+//void green_LED_off(void) __attribute__((weak, alias("__green_LED_off")));
 void inline __yellow_LED_on(void) {}
-void yellow_LED_on(void) __attribute__((weak, alias("__yellow_LED_on")));
+//void yellow_LED_on(void) __attribute__((weak, alias("__yellow_LED_on")));
 void inline __yellow_LED_off(void) {}
-void yellow_LED_off(void) __attribute__((weak, alias("__yellow_LED_off")));
+//void yellow_LED_off(void) __attribute__((weak, alias("__yellow_LED_off")));
 void inline __blue_LED_on(void) {}
-void blue_LED_on(void) __attribute__((weak, alias("__blue_LED_on")));
+//void blue_LED_on(void) __attribute__((weak, alias("__blue_LED_on")));
 void inline __blue_LED_off(void) {}
-void blue_LED_off(void) __attribute__((weak, alias("__blue_LED_off")));
+//void blue_LED_off(void) __attribute__((weak, alias("__blue_LED_off")));
 
 /************************************************************************
  * Init Utilities							*

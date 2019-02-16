@@ -28,8 +28,8 @@
 #include <asm/arch/pxa-regs.h>
 
 DECLARE_GLOBAL_DATA_PTR;
-
-#ifdef CONFIG_SHOW_BOOT_PROGRESS
+// 2019-02-15 darryln - board only has 1 LED, not enough for progress
+#if 0 //def CONFIG_SHOW_BOOT_PROGRESS
 # define SHOW_BOOT_PROGRESS(arg)        show_boot_progress(arg)
 #else
 # define SHOW_BOOT_PROGRESS(arg)
@@ -74,7 +74,7 @@ int board_init (void)
 	/* arch number of CSB226 board */
 	gd->bd->bi_arch_number = MACH_TYPE_CSB226;
 
-	/* adress of boot parameters */
+	/* address of boot parameters */
 	gd->bd->bi_boot_params = 0xa0000100;
 
 	return 0;
@@ -105,7 +105,10 @@ int dram_init (void)
 
 void csb226_set_led(int led, int state)
 {
-	switch(led) {
+#if 0
+// 2019-02-15 darryln - board only has 1 LED
+
+ 	switch(led) {
 
 		case 0: if (state==1) {
 				GPCR0 |= CSB226_USER_LED0;
@@ -128,7 +131,7 @@ void csb226_set_led(int led, int state)
 			}
 			break;
 	}
-
+#endif
 	return;
 }
 
@@ -144,12 +147,14 @@ void csb226_set_led(int led, int state)
 
 void show_boot_progress (int status)
 {
+#if 0
+// 2019-02-15 darryln - board only has 1 LED, not enough for progress
 	switch(status) {
 		case  1: csb226_set_led(0,1); break;
 		case  5: csb226_set_led(1,1); break;
 		case 15: csb226_set_led(2,1); break;
 	}
-
+#endif
 	return;
 }
 

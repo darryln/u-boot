@@ -41,7 +41,7 @@
 #define CONFIG_CSB226		1	/* on a CSB226 board                */
 
 #undef CONFIG_USE_IRQ			/* we don't need IRQ/FIQ stuff      */
-					/* for timer/console/ethernet       */
+					            /* for timer/console/ethernet       */
 
 /* we will never enable dcache, because we have to setup MMU first */
 #define CONFIG_SYS_NO_DCACHE
@@ -59,7 +59,7 @@
 /* allow to overwrite serial and ethaddr */
 #define CONFIG_ENV_OVERWRITE
 
-#define CONFIG_BAUDRATE		19200
+#define CONFIG_BAUDRATE		115200
 #undef  CONFIG_MISC_INIT_R		/* not used yet                     */
 
 
@@ -103,7 +103,7 @@
 #define CONFIG_CMDLINE_TAG	1
 
 #if defined(CONFIG_CMD_KGDB)
-#define CONFIG_KGDB_BAUDRATE	19200		/* speed to run kgdb serial port */
+#define CONFIG_KGDB_BAUDRATE	115200		/* speed to run kgdb serial port */
 #define CONFIG_KGDB_SER_INDEX	2		/* which serial port to use */
 #endif
 
